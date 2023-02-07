@@ -1,0 +1,11 @@
+Criar Network
+docker network create -d bridge prometheus-network
+
+Rodar Push Gateway
+docker run -d -p 9091:9091 --name pushgateway --network prometheus-network prom/pushgateway
+
+Rodar Prometheus
+docker run -d -p 9090:9090 --name prometheus --network prometheus-network meu-prometheus
+
+Rodar Grafana
+docker run -d --name=grafana -p 3000:3000 --network prometheus-network  grafana/grafana
