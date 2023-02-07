@@ -1,3 +1,6 @@
+Build da imagem
+docker build -t meu-prometheus .
+
 Criar Network
 docker network create -d bridge prometheus-network
 
